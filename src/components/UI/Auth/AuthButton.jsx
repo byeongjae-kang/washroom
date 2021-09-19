@@ -1,5 +1,6 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
+import styles from "./AuthButtonStyle";
 
 export default function AuthButton(props) {
   return (
@@ -8,21 +9,3 @@ export default function AuthButton(props) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    height: 50,
-    width: 350,
-    backgroundColor: "rgba(107, 104, 255, 1)",
-    borderColor: "#000000",
-    borderWidth: 1,
-    marginBottom: 10,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold"
-  },
-})

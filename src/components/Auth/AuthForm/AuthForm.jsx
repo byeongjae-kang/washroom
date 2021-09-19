@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from "react";
-import { Text, StyleSheet, ScrollView } from "react-native";
+import { Text, ScrollView } from "react-native";
 import AuthButton from "../../UI/Auth/AuthButton";
 import AuthInput from "../../UI/Auth/AuthInput";
 import AuthText from "../AuthText/AuthText";
+import styles from "./AuthFormStyle";
 
 function AuthForm() {
   const [isLoggingIn, setIsLoggingIn] = useState(true);
@@ -85,14 +86,5 @@ function AuthForm() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    height: 50,
-    padding: 5,
-    fontSize: 30,
-    fontWeight: "bold"
-  }
-});
 
 export default AuthForm;

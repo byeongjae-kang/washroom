@@ -1,6 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, Image, Text } from "react-native";
 import AuthForm from "../components/Auth/AuthForm/AuthForm";
+import styles from './AuthPageStyle'
 
 function AuthPage() {
   return (
@@ -16,22 +17,5 @@ function AuthPage() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
-    alignItems: "center",
-    margin: 0,
-    padding: 0
-  },
-
-  background: {
-    marginTop: 0,
-    width: 1080,
-    height: 280,
-    resizeMode: "contain",
-    position: "relative"
-  }
-});
 
 export default AuthPage;

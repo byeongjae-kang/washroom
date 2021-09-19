@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import styles from "./AuthTextStyle";
 
 function AuthText(props) {
-
   const checkLoginOrRegister = props.isLoggingIn
     ? "Already have an account?"
     : "Do not have an account?";
@@ -34,16 +29,5 @@ function AuthText(props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  account: {
-    display: "flex",
-    flexDirection: "row"
-  },
-  accountText: {
-    color: "rgba(107, 104, 255, 1)",
-    fontWeight: "bold"
-  }
-});
 
 export default AuthText;
