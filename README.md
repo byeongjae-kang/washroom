@@ -1,13 +1,12 @@
 # Washroom
 
-SPA Android mobile application in Development with React Native.
+Android mobile application in Development with React Native. This app is to find public washrooms near users.
 
 ## Views
 
 <!-- !["Login Page"](https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Login.png)
 !["Register Page"](https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Register.png) -->
-<img src="https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Login.png" width="100">
-<img src="https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Register.png" width="100">
+<img src="https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Login.png" width="400"> <img src="https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Register.png" width="400">
 
 
 ## Dependencies
