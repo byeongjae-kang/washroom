@@ -4,8 +4,11 @@ SPA Android mobile application in Development with React Native.
 
 ## Views
 
-!["Login Page"](https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Login.png)
-!["Register Page"](https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Register.png)
+<!-- !["Login Page"](https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Login.png)
+!["Register Page"](https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Register.png) -->
+<img src="https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Login.png" width="100">
+<img src="https://github.com/byeongjae-kang/washroom/blob/development/authpages/docs/Register.png" width="100">
+
 
 ## Dependencies
 
