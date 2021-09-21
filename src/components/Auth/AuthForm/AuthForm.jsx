@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Text, ScrollView } from "react-native";
+import { Text, View } from "react-native";
 import AuthButton from "../../UI/Auth/AuthButton";
 import AuthInput from "../../UI/Auth/AuthInput";
 import AuthText from "../AuthText/AuthText";
@@ -71,7 +71,7 @@ function AuthForm() {
   const loginOrRegister = isLoggingIn ? "Login" : "Register";
 
   return (
-    <ScrollView>
+    <View style={styles.container}>
       <Text style={styles.title}>{loginOrRegister}</Text>
       {isLoggingIn ? Login : Register}
       <AuthButton
@@ -83,7 +83,7 @@ function AuthForm() {
         isLoggingIn={isLoggingIn}
         loginOrRegister={loginOrRegister}
       />
-    </ScrollView>
+    </View>
   );
 }
 
