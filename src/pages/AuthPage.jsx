@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Image, Text } from "react-native";
+import { Image, Text, KeyboardAvoidingView } from "react-native";
 import AuthForm from "../components/Auth/AuthForm/AuthForm";
 import styles from './AuthPageStyle'
 
 function AuthPage() {
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior='position' >
       <Image
         style={styles.background}
         source={{
@@ -14,7 +14,7 @@ function AuthPage() {
       />
       <AuthForm />
       <Text>or</Text>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
