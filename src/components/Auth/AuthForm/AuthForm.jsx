@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, KeyboardAvoidingView } from "react-native";
 import AuthButton from "../../UI/Auth/AuthButton";
 import AuthInput from "../../UI/Auth/AuthInput";
 import AuthText from "../AuthText/AuthText";
@@ -29,7 +29,7 @@ function AuthForm() {
   };
 
   const Login = (
-    <Fragment>
+    <KeyboardAvoidingView behavior="position">
       <AuthInput
         placeholder="username@gmail.com"
         value={email}
@@ -40,7 +40,7 @@ function AuthForm() {
         value={password}
         setValue={setPassword}
       />
-    </Fragment>
+    </KeyboardAvoidingView>
   );
 
   const Register = (
