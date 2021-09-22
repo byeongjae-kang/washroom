@@ -4,8 +4,10 @@ import styles from "./AuthTextStyle";
 
 function AuthText(props) {
   const checkLoginOrRegister = props.isLoggingIn
-    ? "Already have an account?"
-    : "Do not have an account?";
+    ? "Do not have an account?"
+    : "Already have an account?";
+
+  const loginOrRegister = props.isLoggingIn ? "Register" : "Login";
 
   return (
     <View>
@@ -15,7 +17,7 @@ function AuthText(props) {
           {"  "}
         </Text>
         <TouchableOpacity onPress={props.onPress}>
-          <Text style={styles.accountText}>{props.loginOrRegister}</Text>
+          <Text style={styles.accountText}>{loginOrRegister}</Text>
         </TouchableOpacity>
       </View>
       {props.isLoggingIn && (
