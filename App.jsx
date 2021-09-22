@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import AuthPage from "./src/pages/AuthPage";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Ben is the smartest guy in this project!!</Text>
+      <AuthPage />
       <StatusBar style="auto" />
     </View>
   );
@@ -13,9 +14,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    width: "100%",
+    alignItems: "center"
   }
 });
