@@ -61,7 +61,7 @@ function AuthForm() {
         setValue={setPassword}
       />
       <AuthInput
-        placeholder="confirm Password"
+        placeholder="Confirm Password"
         value={confirmPassword}
         setValue={setConfirmPassword}
       />
