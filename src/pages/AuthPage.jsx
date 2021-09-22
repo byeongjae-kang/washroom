@@ -1,12 +1,17 @@
 import React from "react";
-import { Image, Text, View, KeyboardAvoidingView } from "react-native";
+import {
+  Image,
+  Text,
+  View,
+  ScrollView
+} from "react-native";
 import AuthForm from "../components/Auth/AuthForm/AuthForm";
 import GoogleLogin from "../components/Auth/GoogleLogin/GoogleLogin";
 import styles from "./AuthPageStyle";
 
 function AuthPage() {
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="position">
+    <ScrollView style={styles.container}>
       <Image
         style={styles.background}
         source={{
@@ -18,7 +23,7 @@ function AuthPage() {
         <Text>or</Text>
         <GoogleLogin />
       </View>
-    </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
