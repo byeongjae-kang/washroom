@@ -6,7 +6,10 @@ function AuthInput(props) {
   const [isSecure, setIsSecure] = useState(false);
 
   useEffect(() => {
-    if (props.placeholder.split(" ").includes("Password")) {
+    if (
+      props.placeholder === "Password" ||
+      props.placeholder === "Confirm Password"
+    ) {
       setIsSecure(true);
     } else {
       setIsSecure(false);

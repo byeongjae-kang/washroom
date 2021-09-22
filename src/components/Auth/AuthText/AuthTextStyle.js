@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   account: {
+    width: 340,
     display: "flex",
     flexDirection: "row"
   },

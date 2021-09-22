@@ -1,19 +1,23 @@
 import React from "react";
-import { Image, Text, KeyboardAvoidingView } from "react-native";
+import { Image, Text, View, KeyboardAvoidingView } from "react-native";
 import AuthForm from "../components/Auth/AuthForm/AuthForm";
-import styles from './AuthPageStyle'
+import GoogleLogin from "../components/Auth/GoogleLogin/GoogleLogin";
+import styles from "./AuthPageStyle";
 
 function AuthPage() {
   return (
-    <KeyboardAvoidingView style={styles.container} behavior='position' >
+    <KeyboardAvoidingView style={styles.container} behavior="position">
       <Image
         style={styles.background}
         source={{
           uri: "https://media.istockphoto.com/vectors/male-and-female-bathroom-sign-girl-power-womens-rights-background-vector-id957637170"
         }}
       />
-      <AuthForm />
-      <Text>or</Text>
+      <View style={styles.authwrapper}>
+        <AuthForm />
+        <Text>or</Text>
+        <GoogleLogin />
+      </View>
     </KeyboardAvoidingView>
   );
 }

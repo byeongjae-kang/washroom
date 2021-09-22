@@ -71,7 +71,7 @@ function AuthForm() {
   const loginOrRegister = isLoggingIn ? "Login" : "Register";
 
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.title}>{loginOrRegister}</Text>
       {isLoggingIn ? Login : Register}
       <AuthButton
