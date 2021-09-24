@@ -8,7 +8,6 @@ import styles from "./AuthFormStyle";
 
 function AuthForm() {
   const [isLoggingIn, setIsLoggingIn] = useState(true);
-  // const [formIsValid, setFormIsValid] = useState(false);
 
   const {
     value: username,
@@ -48,10 +47,6 @@ function AuthForm() {
 
   let formIsValid = false;
 
-  console.log(usernameIsValid);
-  console.log(emailIsValid);
-  console.log(passwordIsValid);
-  console.log(confirmPasswordIsValid);
   if (
     (isLoggingIn && passwordIsValid && emailIsValid) ||
     (emailIsValid &&
@@ -147,11 +142,7 @@ function AuthForm() {
         onPress={isLoggingIn ? loginHandler : registerHandler}
         buttonText={loginOrRegister}
       />
-      <AuthText
-        onPress={accountHandler}
-        isLoggingIn={isLoggingIn}
-        loginOrRegister={loginOrRegister}
-      />
+      <AuthText onPress={accountHandler} isLoggingIn={isLoggingIn} />
     </View>
   );
 }
