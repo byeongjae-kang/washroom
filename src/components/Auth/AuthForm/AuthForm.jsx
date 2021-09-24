@@ -138,10 +138,9 @@ function AuthForm() {
     <View>
       <Text style={styles.title}>{loginOrRegister}</Text>
       {isLoggingIn ? Login : Register}
-      <AuthButton
-        onPress={isLoggingIn ? loginHandler : registerHandler}
-        buttonText={loginOrRegister}
-      />
+      <AuthButton onPress={isLoggingIn ? loginHandler : registerHandler}>
+        <Text style={styles.buttonText}>{loginOrRegister}</Text>
+      </AuthButton>
       <AuthText onPress={accountHandler} isLoggingIn={isLoggingIn} />
     </View>
   );
