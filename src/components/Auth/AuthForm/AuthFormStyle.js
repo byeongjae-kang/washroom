@@ -7,6 +7,12 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     fontSize: 30,
     fontWeight: "bold"
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center"
   }
 });
 
