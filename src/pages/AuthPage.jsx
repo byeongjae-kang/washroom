@@ -1,12 +1,8 @@
 import React from "react";
-import {
-  Image,
-  Text,
-  View,
-  ScrollView
-} from "react-native";
+import { Image, Text, View, ScrollView } from "react-native";
 import AuthForm from "../components/Auth/AuthForm/AuthForm";
-import GoogleLogin from "../components/Auth/GoogleLogin/GoogleLogin";
+import OtherLoginButton from "../components/Auth/OtherLoginButton/OtherLoginButton";
+
 import styles from "./AuthPageStyle";
 
 function AuthPage() {
@@ -21,7 +17,7 @@ function AuthPage() {
       <View style={styles.authwrapper}>
         <AuthForm />
         <Text>or</Text>
-        <GoogleLogin />
+        <OtherLoginButton />
       </View>
     </ScrollView>
   );
