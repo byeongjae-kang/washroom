@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Text, View, KeyboardAvoidingView } from "react-native";
+import useAuthInput from "../../../hooks/useAuthInput";
 import AuthButton from "../../UI/Auth/AuthButton";
 import AuthInput from "../../UI/Auth/AuthInput";
 import AuthText from "../AuthText/AuthText";
@@ -7,25 +8,76 @@ import styles from "./AuthFormStyle";
 
 function AuthForm() {
   const [isLoggingIn, setIsLoggingIn] = useState(true);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const {
+    value: username,
+    valueIsValid: usernameIsValid,
+    hasError: usernameHasError,
+    reset: resetUsername,
+    valueChangeHandler: usernameChangeHandler,
+    inputBlurHandler: usernameBlurHandler
+  } = useAuthInput((value) => value.trim() !== "");
+
+  const {
+    value: email,
+    valueIsValid: emailIsValid,
+    hasError: emailHasError,
+    reset: resetEmail,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler
+  } = useAuthInput((value) => value.includes("@"));
+
+  const {
+    value: password,
+    valueIsValid: passwordIsValid,
+    hasError: passwordHasError,
+    reset: resetPassword,
+    valueChangeHandler: passwordChangeHandler,
+    inputBlurHandler: passwordBlurHandler
+  } = useAuthInput((value) => value.trim() !== "");
+
+  const {
+    value: confirmPassword,
+    valueIsValid: confirmPasswordIsValid,
+    hasError: confirmPasswordHasError,
+    reset: resetConfirmPassword,
+    valueChangeHandler: confirmPasswordChangeHandler,
+    inputBlurHandler: confirmPasswordBlurHandler
+  } = useAuthInput((value) => value === password);
+
+  let formIsValid = false;
+
+  if (
+    (isLoggingIn && passwordIsValid && emailIsValid) ||
+    (emailIsValid &&
+      passwordIsValid &&
+      usernameIsValid &&
+      confirmPasswordIsValid)
+  ) {
+    formIsValid = true;
+  }
 
   const loginHandler = () => {
-    setEmail("");
-    setPassword("");
+    if (!formIsValid) {
+      return;
+    }
+    resetEmail();
+    resetPassword();
   };
 
   const registerHandler = () => {
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    resetEmail();
+    resetPassword();
+    resetUsername();
+    resetConfirmPassword();
   };
 
   const accountHandler = () => {
     setIsLoggingIn((prev) => !prev);
+    resetEmail();
+    resetPassword();
+    resetUsername();
+    resetConfirmPassword();
   };
 
   const Login = (
@@ -33,12 +85,16 @@ function AuthForm() {
       <AuthInput
         placeholder="username@gmail.com"
         value={email}
-        setValue={setEmail}
+        onChange={emailChangeHandler}
+        onBlur={emailBlurHandler}
+        onError={emailHasError}
       />
       <AuthInput
         placeholder="Password"
         value={password}
-        setValue={setPassword}
+        onChange={passwordChangeHandler}
+        onBlur={passwordBlurHandler}
+        onError={passwordHasError}
       />
     </KeyboardAvoidingView>
   );
@@ -48,22 +104,30 @@ function AuthForm() {
       <AuthInput
         placeholder="User Name"
         value={username}
-        setValue={setUsername}
+        onChange={usernameChangeHandler}
+        onBlur={usernameBlurHandler}
+        onError={usernameHasError}
       />
       <AuthInput
         placeholder="username@gmail.com"
         value={email}
-        setValue={setEmail}
+        onChange={emailChangeHandler}
+        onBlur={emailBlurHandler}
+        onError={emailHasError}
       />
       <AuthInput
         placeholder="Password"
         value={password}
-        setValue={setPassword}
+        onChange={passwordChangeHandler}
+        onBlur={passwordBlurHandler}
+        onError={passwordHasError}
       />
       <AuthInput
         placeholder="Confirm Password"
         value={confirmPassword}
-        setValue={setConfirmPassword}
+        onChange={confirmPasswordChangeHandler}
+        onBlur={confirmPasswordBlurHandler}
+        onError={confirmPasswordHasError}
       />
     </Fragment>
   );
@@ -74,15 +138,10 @@ function AuthForm() {
     <View>
       <Text style={styles.title}>{loginOrRegister}</Text>
       {isLoggingIn ? Login : Register}
-      <AuthButton
-        onPress={isLoggingIn ? loginHandler : registerHandler}
-        buttonText={loginOrRegister}
-      />
-      <AuthText
-        onPress={accountHandler}
-        isLoggingIn={isLoggingIn}
-        loginOrRegister={loginOrRegister}
-      />
+      <AuthButton onPress={isLoggingIn ? loginHandler : registerHandler}>
+        <Text style={styles.buttonText}>{loginOrRegister}</Text>
+      </AuthButton>
+      <AuthText onPress={accountHandler} isLoggingIn={isLoggingIn} />
     </View>
   );
 }

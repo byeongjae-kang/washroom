@@ -1,29 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { TextInput } from "react-native";
+import { TextInput, View, Text } from "react-native";
 import styles from "./AuthInputStyle";
 
 function AuthInput(props) {
+  const { placeholder, onError, value, onChange, onBlur } = props;
   const [isSecure, setIsSecure] = useState(false);
 
   useEffect(() => {
-    if (
-      props.placeholder === "Password" ||
-      props.placeholder === "Confirm Password"
-    ) {
+    if (placeholder === "Password" || placeholder === "Confirm Password") {
       setIsSecure(true);
     } else {
       setIsSecure(false);
     }
   }, []);
 
+  const inputStyle = onError ? styles.input_invalid : styles.input;
+
   return (
-    <TextInput
-      style={styles.input}
-      placeholder={props.placeholder}
-      secureTextEntry={isSecure}
-      value={props.value}
-      onChangeText={(value) => props.setValue(value)}
-    />
+    <View>
+      <TextInput
+        style={inputStyle}
+        placeholder={placeholder}
+        secureTextEntry={isSecure}
+        value={value}
+        onChangeText={onChange}
+        onEndEditing={onBlur}
+      />
+      {onError && <Text style={styles.text_invalid}>Invalid Input</Text>}
+    </View>
   );
 }
 
